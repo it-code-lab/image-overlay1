@@ -18,6 +18,19 @@ const border = document.getElementById('border');
 const downloadButton = document.getElementById('downloadButton');
 const imageContainer = document.getElementById('imageContainer'); // Get the container
 const fontFamily = document.getElementById('fontFamily'); // Get the select element
+const xPosition = document.getElementById('xPosition'); // Get the input element
+const yPosition = document.getElementById('yPosition');
+
+let firstLoad = true;
+
+let useCommonFontSize = false;
+let useCommonFontColor = false;
+let useCommonBgColor = false;
+let useCommonBgOpacity = false;
+let useCommonFontFamily = false;
+let useCommonFontStyle = false;
+let useCommonXPosition = false;
+let useCommonYPosition = false;
 
 let image;
 let designs = []; // Store generated designs
@@ -73,6 +86,42 @@ function handlePastedImage(blob) {
     reader.readAsDataURL(blob);
 }
 
+function resetView() {
+    firstLoad = true;
+
+    useCommonFontSize = false;
+    useCommonFontColor = false;
+    useCommonBgColor = false;
+    useCommonBgOpacity = false;
+    useCommonFontFamily = false;
+    useCommonFontStyle = false;
+    useCommonXPosition = false;
+    useCommonYPosition = false;
+
+    generateDesigns();
+}
+function generateDesignsUpdate(flagToUpdate) {
+    if (flagToUpdate =="fontSize"){
+        useCommonFontSize = true
+    }else if (flagToUpdate =="fontColor"){
+        useCommonFontColor = true
+    }else if (flagToUpdate =="bgColor"){
+        useCommonBgColor = true
+    }else if (flagToUpdate =="bgOpacity"){
+        useCommonBgOpacity = true
+    }else if (flagToUpdate =="fontFamily"){
+        useCommonFontFamily = true
+    }else if (flagToUpdate =="fontStyle"){
+        useCommonFontStyle = true
+    }else if (flagToUpdate =="xPosition"){
+        useCommonXPosition = true
+    }else if (flagToUpdate =="yPosition"){
+        useCommonYPosition = true
+    }
+    
+    firstLoad = false;
+    generateDesigns();
+}
 
 // Design Generation and Preview
 function generateDesigns() {
@@ -86,26 +135,26 @@ function generateDesigns() {
     let variations;
     if (layout === 'center') {
         variations = [
-            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(0, 255, 0)', color: 'black' , bgOpacity: '0.8', fontFamily:'sans-serif'}, // Example green background
-            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(0, 255, 0)', color: 'white', bgOpacity: '0.8', fontFamily:'sans-serif' }, // Example green background
-            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(0, 255, 0)', color: 'yellow', bgOpacity: '0.8', fontFamily:'sans-serif' }, // Example green background
-            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(250, 247, 247)', color: 'black', bgOpacity: '0.8', fontFamily:'sans-serif' }, // Example green background
+            { xDefault: 0.5, yDefault: 0.5, alignDefault: 'center', bgColorDefault: 'rgba(0, 255, 0)', colorDefault: 'black' , bgOpacityDefault: '0.8', fontFamilyDefault:'sans-serif'}, // Example green background
+            { xDefault: 0.5, yDefault: 0.5, alignDefault: 'center', bgColorDefault: 'rgba(0, 255, 0)', colorDefault: 'white', bgOpacityDefault: '0.8', fontFamilyDefault:'sans-serif' }, // Example green background
+            { xDefault: 0.5, yDefault: 0.5, alignDefault: 'center', bgColorDefault: 'rgba(0, 255, 0)', colorDefault: 'yellow', bgOpacityDefault: '0.8', fontFamilyDefault:'sans-serif' }, // Example green background
+            { xDefault: 0.5, yDefault: 0.5, alignDefault: 'center', bgColorDefault: 'rgba(250, 247, 247)', colorDefault: 'black', bgOpacityDefault: '0.8', fontFamilyDefault:'sans-serif' }, // Example green background
 
-            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(0,0,0)', color: 'white' , bgOpacity: '0.8', fontFamily:'sans-serif'},
-            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(0, 0, 255)', color: 'white', bgOpacity: '0.8', fontFamily:'sans-serif' },  // Example blue background
-            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(255, 242, 0)', color: 'black', bgOpacity: '0.8', fontFamily:'sans-serif' },  // Example blue background
+            { xDefault: 0.5, yDefault: 0.5, alignDefault: 'center', bgColorDefault: 'rgba(0,0,0)', colorDefault: 'white' , bgOpacityDefault: '0.8', fontFamilyDefault:'sans-serif'},
+            { xDefault: 0.5, yDefault: 0.5, alignDefault: 'center', bgColorDefault: 'rgba(0, 0, 255)', colorDefault: 'white', bgOpacityDefault: '0.8', fontFamilyDefault:'sans-serif' },  // Example blue background
+            { xDefault: 0.5, yDefault: 0.5, alignDefault: 'center', bgColorDefault: 'rgba(255, 242, 0)', colorDefault: 'black', bgOpacityDefault: '0.8', fontFamilyDefault:'sans-serif' },  // Example blue background
 
         ];
     } else if (layout === 'bullets') {
         variations = [
-            { x: 0.2, y: 0.2, align: 'center', bgColor: 'rgba(0,0,0)', color: 'white', bgOpacity: '0.8', fontFamily:'sans-serif' },
-            { x: 0.5, y: 0.2, align: 'center', bgColor: 'rgba(255,255,255)', color: 'black' , bgOpacity: '0.8', fontFamily:'sans-serif'},
-            { x: 0.9, y: 0.2, align: 'center', bgColor: 'rgba(0,0,0)', color: 'yellow', bgOpacity: '0.8', fontFamily:'sans-serif' },
-            { x: 0.2, y: 0.5, align: 'center', bgColor: 'rgba(244, 224, 9)', color: 'black', bgOpacity: '0.8', fontFamily:'sans-serif' }, // Example red background
-            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(0, 255, 0)', color: 'black', bgOpacity: '0.8', fontFamily:'sans-serif' }, // Example green background
-            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(0, 255, 0)', color: 'rgb(248, 216, 8)' , bgOpacity: '0.8' , fontFamily:'sans-serif'}, // Example green background
-            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(0,0,0)', color: 'white' , bgOpacity: '0.8' , fontFamily:'sans-serif'},
-            { x: 0.9, y: 0.5, align: 'center', bgColor: 'rgba(0, 0, 255)', color: 'white' , bgOpacity: '0.8' , fontFamily:'sans-serif'}  // Example blue background
+            { xDefault: 0.2, yDefault: 0.2, alignDefault: 'center', bgColorDefault: 'rgba(0,0,0)', colorDefault: 'white', bgOpacityDefault: '0.8', fontFamilyDefault:'sans-serif' },
+            { xDefault: 0.5, yDefault: 0.2, alignDefault: 'center', bgColorDefault: 'rgba(255,255,255)', colorDefault: 'black' , bgOpacityDefault: '0.8', fontFamilyDefault:'sans-serif'},
+            { xDefault: 0.9, yDefault: 0.2, alignDefault: 'center', bgColorDefault: 'rgba(0,0,0)', colorDefault: 'yellow', bgOpacityDefault: '0.8', fontFamilyDefault:'sans-serif' },
+            { xDefault: 0.2, yDefault: 0.5, alignDefault: 'center', bgColorDefault: 'rgba(244, 224, 9)', colorDefault: 'black', bgOpacityDefault: '0.8', fontFamilyDefault:'sans-serif' }, // Example red background
+            { xDefault: 0.5, yDefault: 0.5, alignDefault: 'center', bgColorDefault: 'rgba(0, 255, 0)', colorDefault: 'black', bgOpacityDefault: '0.8', fontFamilyDefault:'sans-serif' }, // Example green background
+            { xDefault: 0.5, yDefault: 0.5, alignDefault: 'center', bgColorDefault: 'rgba(0, 255, 0)', colorDefault: 'rgb(248, 216, 8)' , bgOpacityDefault: '0.8' , fontFamilyDefault:'sans-serif'}, // Example green background
+            { xDefault: 0.5, yDefault: 0.5, alignDefault: 'center', bgColorDefault: 'rgba(0,0,0)', colorDefault: 'white' , bgOpacityDefault: '0.8' , fontFamilyDefault:'sans-serif'},
+            { xDefault: 0.9, yDefault: 0.5, alignDefault: 'center', bgColorDefault: 'rgba(0, 0, 255)', colorDefault: 'white' , bgOpacityDefault: '0.8' , fontFamilyDefault:'sans-serif'}  // Example blue background
         ];
     }
     variations.forEach(variation => {
@@ -119,8 +168,12 @@ function generateDesigns() {
             bgOpacity: bgOpacity.value,
             fontStyle: fontStyle.value,
             fontFamily: fontFamily.value, // Add fontFamily to the design object
+            align: textAlign.value,
             shadow: shadow.checked,
-            border: border.checked
+            border: border.checked,
+            color: fontColor.value,
+            x: xPosition.value / 100, // Convert to 0-1 range
+            y: yPosition.value / 100 // Convert to 0-1 range
 
         };
         designs.push(design);
@@ -269,6 +322,36 @@ function drawImage(canvas, img) {
 
 function drawText(canvas, design) {
     const ctx = canvas.getContext('2d');
+
+    if (firstLoad){
+        design.x = design.xDefault;
+        design.y = design.yDefault;
+        design.align = design.alignDefault;
+        design.bgColor = design.bgColorDefault;
+        design.fontColor = design.colorDefault;
+        design.bgOpacity = design.bgOpacityDefault;
+        design.fontFamily = design.fontFamilyDefault;
+    }else{
+        if (!useCommonFontColor){
+            design.fontColor = design.colorDefault;
+        }
+        if (!useCommonBgColor){
+            design.bgColor = design.bgColorDefault;
+        }
+        if (!useCommonBgOpacity){
+            design.bgOpacity = design.bgOpacityDefault;
+        }
+        if (!useCommonFontFamily){
+            design.fontFamily = design.fontFamilyDefault;
+        }
+        if (!useCommonXPosition){
+            design.x = design.xDefault;
+        }
+        if (!useCommonYPosition){
+            design.y = design.yDefault;
+        }
+    }
+
     ctx.font = `${design.fontStyle} ${design.fontSize}px ${design.fontFamily}`; // Use design.fontFamily
     ctx.fillStyle = design.fontColor;
     ctx.textAlign = design.align;
@@ -356,18 +439,21 @@ layoutType.addEventListener('change', generateDesigns);
 heading.addEventListener('input', generateDesigns);
 bullets.addEventListener('input', generateDesigns);
 infoText.addEventListener('input', generateDesigns);
-fontSize.addEventListener('input', generateDesigns);
-fontColor.addEventListener('input', generateDesigns);
-bgColor.addEventListener('input', generateDesigns);
 
-bgOpacity.addEventListener('change', generateDesigns);
-fontStyle.addEventListener('change', generateDesigns);
-fontFamily.addEventListener('change', generateDesigns);
-textAlign.addEventListener('change', generateDesigns);
-shadow.addEventListener('change', generateDesigns);
-border.addEventListener('change', generateDesigns);
+fontSize.addEventListener('input', () => generateDesignsUpdate("fontSize"));
+fontColor.addEventListener('input', () => generateDesignsUpdate("fontColor"));
+bgColor.addEventListener('input', () => generateDesignsUpdate("bgColor"));
+bgOpacity.addEventListener('change', () => generateDesignsUpdate("bgOpacity"));
+fontStyle.addEventListener('change', () => generateDesignsUpdate("fontStyle"));
+fontFamily.addEventListener('change', () => generateDesignsUpdate("fontFamily"));
 
 
+textAlign.addEventListener('change', generateDesignsUpdate);
+shadow.addEventListener('change', generateDesignsUpdate);
+border.addEventListener('change', generateDesignsUpdate);
+
+xPosition.addEventListener('input', () =>generateDesignsUpdate("xPosition"));
+yPosition.addEventListener('input', () =>generateDesignsUpdate("yPosition"));
 
 // Download functionality
 downloadButton.addEventListener('click', () => {
