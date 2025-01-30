@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Text Overlay Tool</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>YouTube Thumbnail & Video Text Overlay</h1>
+
+      <div class="upload-area">
+        <input type="file" id="imageUpload" accept="image/*" />
+        
+        <br /><br />
+        <span class="paste-instructions"
+          >Or paste image using Ctrl+V (Windows) or Cmd+V (Mac)</span
+        >
+        <div class="input-area">
+            <select id="layoutType">
+              <option value="center">Center Heading</option>
+              <option value="headingBullets">Heading & Bullets</option>
+              <option value="bullets">Only Bullets</option>
+              <option value="info">Information Block</option>
+              <option value="thumbnail">Thumbnail Style</option>
+            </select>
+  
+            <input type="text" id="heading" placeholder="Heading (Single Line)" />
+            <textarea
+              id="bullets"
+              placeholder="Bullets (One per line)"
+            ></textarea>
+            <textarea id="infoText" placeholder="Information Text"></textarea>
+        </div>  
+    </div>
+
+      <div class="input-n-preview-area">
+        <div class="input-area">
+          <div class="text-options">
+            <label for="fontSize">Font Size:</label>
+            <input type="number" id="fontSize" value="30" min="1" />
+            <label for="fontColor">Font Color:</label>
+            <input type="color" id="fontColor" value="#ffffff" />
+            <label for="bgColor">Background Color:</label>
+            <input type="color" id="bgColor" value="#000000" /> <br />
+
+            <label for="fontStyle">Font Style:</label>
+            <select id="fontStyle">
+              <option value="normal">Normal</option>
+              <option value="bold">Bold</option>
+              <option value="italic">Italic</option>
+            </select>
+            <label for="textAlign">Text Align:</label>
+            <select id="textAlign">
+              <option value="left">Left</option>
+              <option value="center">Center</option>
+              <option value="right">Right</option>
+            </select>
+            <br />
+            <label for="shadow">Shadow:</label>
+            <input type="checkbox" id="shadow" />
+            <label for="border">Border:</label>
+            <input type="checkbox" id="border" />
+          </div>
+          <div class="customization-options">
+            <h3>Additional Customization</h3>
+            <label for="xPosition">X Position (%):</label>
+            <input type="number" id="xPosition" value="0" min="0" max="100" />
+            <label for="yPosition">Y Position (%):</label>
+            <input type="number" id="yPosition" value="0" min="0" max="100" />
+          </div>
+        </div>
+
+        <div class="preview-area">
+          <h2>Preview</h2>
+          <div id="imageContainer">
+            <canvas id="previewCanvas"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="final-selection">
+        <h2>Final Selection</h2>
+        <canvas id="finalCanvas"></canvas>
+        <button id="downloadButton">Download Image</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,130 @@
+/* styles.css */
+body {
+    font-family: sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    width: 80%; /* Adjust as needed */
+    max-width: 900px;
+}
+
+.upload-area, .input-area, .preview-area, .final-selection {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.upload-button {
+    padding: 10px 15px;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.input-area input, .input-area textarea, .input-area select {
+    width: calc(100% - 22px); /* Account for padding and border */
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+.input-area textarea {
+    height: 100px; /* Adjust as needed */
+    resize: vertical;
+}
+
+.preview-area, .final-selection {
+    text-align: center; /* Center the canvas */
+}
+
+#previewCanvas, #finalCanvas {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+}
+.text-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+.text-options label {
+    margin-right: 5px;
+}
+
+#downloadButton {
+    padding: 10px 20px;
+    background-color: #007bff; /* Blue */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.preview-area {
+    display: flex;                /* Use flexbox for layout */
+    flex-direction: column;       /* Align items vertically */
+    align-items: flex-start;      /* Align items to the left */
+    overflow-x: auto;            /* Add horizontal scrolling if necessary */
+    border: 1px solid #ccc; /* Add a border to the preview area */
+    padding: 10px; /* Add some padding */
+}
+
+#imageContainer {
+    display: flex;                /* Use flexbox for the preview grid */
+    flex-wrap: wrap;           /* Prevent wrapping */
+    gap: 10px;  /* Space between the preview items */
+}
+
+.input-area {
+    display: flex;
+    flex-direction: column; /* Stack the form elements */
+}
+
+.input-area > * { /* Target direct children of input-area */
+    margin-bottom: 10px; /* Consistent spacing */
+}
+
+.text-options {
+    display: grid; /* Use grid for better layout control */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive columns */
+    gap: 10px;
+}
+
+.text-options label, .text-options select, .text-options input[type="color"], .text-options input[type="number"] {
+    display: block; /* Make labels and inputs stack vertically in each grid item */
+    width: 100%; /* Make inputs take full width of their grid cell */
+    margin-bottom: 5px;
+}
+
+.text-options input[type="checkbox"] {
+    display: inline-block; /* Keep checkboxes inline with their labels */
+    margin-right: 5px;
+}
+
+.container {
+    width: 90%; /* Occupy most of the screen width */
+    max-width: 1200px; /* Set a maximum width */
+}
+
+.input-n-preview-area{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
