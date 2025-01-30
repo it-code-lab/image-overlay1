@@ -135,26 +135,29 @@ function generateDesigns() {
     let variations;
     if (layout === 'center') {
         variations = [
-            { xDefault: 0.5, yDefault: 0.5, alignDefault: 'center', bgColorDefault: 'rgba(0, 255, 0)', colorDefault: 'black' , bgOpacityDefault: '0.8', fontFamilyDefault:'sans-serif'}, // Example green background
-            { xDefault: 0.5, yDefault: 0.5, alignDefault: 'center', bgColorDefault: 'rgba(0, 255, 0)', colorDefault: 'white', bgOpacityDefault: '0.8', fontFamilyDefault:'sans-serif' }, // Example green background
-            { xDefault: 0.5, yDefault: 0.5, alignDefault: 'center', bgColorDefault: 'rgba(0, 255, 0)', colorDefault: 'yellow', bgOpacityDefault: '0.8', fontFamilyDefault:'sans-serif' }, // Example green background
-            { xDefault: 0.5, yDefault: 0.5, alignDefault: 'center', bgColorDefault: 'rgba(250, 247, 247)', colorDefault: 'black', bgOpacityDefault: '0.8', fontFamilyDefault:'sans-serif' }, // Example green background
+            { xDefault: 0.5, yDefault: 0.5, alignDefault: 'center', bgColorDefault: 'rgb(0, 255, 0)', colorDefault: 'black' , bgOpacityDefault: '0.8', fontFamilyDefault:'sans-serif'}, // Example green background
+            { xDefault: 0.5, yDefault: 0.5, alignDefault: 'center', bgColorDefault: 'rgb(0, 255, 0)', colorDefault: 'white', bgOpacityDefault: '0.8', fontFamilyDefault:'sans-serif' }, // Example green background
+            { xDefault: 0.5, yDefault: 0.5, alignDefault: 'center', bgColorDefault: 'rgb(0, 255, 0)', colorDefault: 'yellow', bgOpacityDefault: '0.8', fontFamilyDefault:'sans-serif' }, // Example green background
+            { xDefault: 0.5, yDefault: 0.5, alignDefault: 'center', bgColorDefault: 'rgb(250, 247, 247)', colorDefault: 'black', bgOpacityDefault: '0.8', fontFamilyDefault:'sans-serif' }, // Example green background
 
-            { xDefault: 0.5, yDefault: 0.5, alignDefault: 'center', bgColorDefault: 'rgba(0,0,0)', colorDefault: 'white' , bgOpacityDefault: '0.8', fontFamilyDefault:'sans-serif'},
-            { xDefault: 0.5, yDefault: 0.5, alignDefault: 'center', bgColorDefault: 'rgba(0, 0, 255)', colorDefault: 'white', bgOpacityDefault: '0.8', fontFamilyDefault:'sans-serif' },  // Example blue background
-            { xDefault: 0.5, yDefault: 0.5, alignDefault: 'center', bgColorDefault: 'rgba(255, 242, 0)', colorDefault: 'black', bgOpacityDefault: '0.8', fontFamilyDefault:'sans-serif' },  // Example blue background
+            { xDefault: 0.5, yDefault: 0.5, alignDefault: 'center', bgColorDefault: 'rgb(0,0,0)', colorDefault: 'white' , bgOpacityDefault: '0.8', fontFamilyDefault:'sans-serif'},
+            { xDefault: 0.5, yDefault: 0.5, alignDefault: 'center', bgColorDefault: 'rgb(0, 0, 255)', colorDefault: 'white', bgOpacityDefault: '0.8', fontFamilyDefault:'sans-serif' },  // Example blue background
+            { xDefault: 0.5, yDefault: 0.5, alignDefault: 'center', bgColorDefault: 'rgb(255, 242, 0)', colorDefault: 'black', bgOpacityDefault: '0.8', fontFamilyDefault:'sans-serif' },  // Example blue background
+            { xDefault: 0.5, yDefault: 0.5, alignDefault: 'center', bgColorDefault: 'rgb(255, 242, 0)', colorDefault: 'white', bgOpacityDefault: '0.8', fontFamilyDefault:'sans-serif' },  // Example blue background
+            { xDefault: 0.5, yDefault: 0.5, alignDefault: 'center', bgColorDefault: 'rgb(255, 162, 0)', colorDefault: 'white', bgOpacityDefault: '0.8', fontFamilyDefault:'sans-serif' },  // Example blue background
+            { xDefault: 0.5, yDefault: 0.5, alignDefault: 'center', bgColorDefault: 'rgb(250, 247, 247)', colorDefault: 'orange', bgOpacityDefault: '0.8', fontFamilyDefault:'sans-serif' },  // Example blue background
 
         ];
     } else if (layout === 'bullets') {
         variations = [
-            { xDefault: 0.2, yDefault: 0.2, alignDefault: 'center', bgColorDefault: 'rgba(0,0,0)', colorDefault: 'white', bgOpacityDefault: '0.8', fontFamilyDefault:'sans-serif' },
-            { xDefault: 0.5, yDefault: 0.2, alignDefault: 'center', bgColorDefault: 'rgba(255,255,255)', colorDefault: 'black' , bgOpacityDefault: '0.8', fontFamilyDefault:'sans-serif'},
-            { xDefault: 0.9, yDefault: 0.2, alignDefault: 'center', bgColorDefault: 'rgba(0,0,0)', colorDefault: 'yellow', bgOpacityDefault: '0.8', fontFamilyDefault:'sans-serif' },
-            { xDefault: 0.2, yDefault: 0.5, alignDefault: 'center', bgColorDefault: 'rgba(244, 224, 9)', colorDefault: 'black', bgOpacityDefault: '0.8', fontFamilyDefault:'sans-serif' }, // Example red background
-            { xDefault: 0.5, yDefault: 0.5, alignDefault: 'center', bgColorDefault: 'rgba(0, 255, 0)', colorDefault: 'black', bgOpacityDefault: '0.8', fontFamilyDefault:'sans-serif' }, // Example green background
-            { xDefault: 0.5, yDefault: 0.5, alignDefault: 'center', bgColorDefault: 'rgba(0, 255, 0)', colorDefault: 'rgb(248, 216, 8)' , bgOpacityDefault: '0.8' , fontFamilyDefault:'sans-serif'}, // Example green background
-            { xDefault: 0.5, yDefault: 0.5, alignDefault: 'center', bgColorDefault: 'rgba(0,0,0)', colorDefault: 'white' , bgOpacityDefault: '0.8' , fontFamilyDefault:'sans-serif'},
-            { xDefault: 0.9, yDefault: 0.5, alignDefault: 'center', bgColorDefault: 'rgba(0, 0, 255)', colorDefault: 'white' , bgOpacityDefault: '0.8' , fontFamilyDefault:'sans-serif'}  // Example blue background
+            { xDefault: 0.2, yDefault: 0.2, alignDefault: 'center', bgColorDefault: 'rgb(0,0,0)', colorDefault: 'white', bgOpacityDefault: '0.8', fontFamilyDefault:'sans-serif' },
+            { xDefault: 0.5, yDefault: 0.2, alignDefault: 'center', bgColorDefault: 'rgb(255,255,255)', colorDefault: 'black' , bgOpacityDefault: '0.8', fontFamilyDefault:'sans-serif'},
+            { xDefault: 0.9, yDefault: 0.2, alignDefault: 'center', bgColorDefault: 'rgb(0,0,0)', colorDefault: 'yellow', bgOpacityDefault: '0.8', fontFamilyDefault:'sans-serif' },
+            { xDefault: 0.2, yDefault: 0.5, alignDefault: 'center', bgColorDefault: 'rgb(244, 224, 9)', colorDefault: 'black', bgOpacityDefault: '0.8', fontFamilyDefault:'sans-serif' }, // Example red background
+            { xDefault: 0.5, yDefault: 0.5, alignDefault: 'center', bgColorDefault: 'rgb(0, 255, 0)', colorDefault: 'black', bgOpacityDefault: '0.8', fontFamilyDefault:'sans-serif' }, // Example green background
+            { xDefault: 0.5, yDefault: 0.5, alignDefault: 'center', bgColorDefault: 'rgb(0, 255, 0)', colorDefault: 'rgb(248, 216, 8)' , bgOpacityDefault: '0.8' , fontFamilyDefault:'sans-serif'}, // Example green background
+            { xDefault: 0.5, yDefault: 0.5, alignDefault: 'center', bgColorDefault: 'rgb(0,0,0)', colorDefault: 'white' , bgOpacityDefault: '0.8' , fontFamilyDefault:'sans-serif'},
+            { xDefault: 0.9, yDefault: 0.5, alignDefault: 'center', bgColorDefault: 'rgb(0, 0, 255)', colorDefault: 'white' , bgOpacityDefault: '0.8' , fontFamilyDefault:'sans-serif'}  // Example blue background
         ];
     }
     variations.forEach(variation => {
