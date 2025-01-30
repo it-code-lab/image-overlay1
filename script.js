@@ -86,26 +86,26 @@ function generateDesigns() {
     let variations;
     if (layout === 'center') {
         variations = [
-            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(0, 255, 0)', color: 'black' , bgOpacity: 0.8, fontFamily:sans-serif}, // Example green background
-            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(0, 255, 0)', color: 'white', bgOpacity: 0.8, fontFamily:sans-serif }, // Example green background
-            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(0, 255, 0)', color: 'yellow', bgOpacity: 0.8, fontFamily:sans-serif }, // Example green background
-            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(250, 247, 247)', color: 'black', bgOpacity: 0.8, fontFamily:sans-serif }, // Example green background
+            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(0, 255, 0)', color: 'black' , bgOpacity: '0.8', fontFamily:'sans-serif'}, // Example green background
+            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(0, 255, 0)', color: 'white', bgOpacity: '0.8', fontFamily:'sans-serif' }, // Example green background
+            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(0, 255, 0)', color: 'yellow', bgOpacity: '0.8', fontFamily:'sans-serif' }, // Example green background
+            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(250, 247, 247)', color: 'black', bgOpacity: '0.8', fontFamily:'sans-serif' }, // Example green background
 
-            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(0,0,0)', color: 'white' , bgOpacity: 0.8, fontFamily:sans-serif},
-            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(0, 0, 255)', color: 'white', bgOpacity: 0.8, fontFamily:sans-serif },  // Example blue background
-            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(255, 242, 0)', color: 'black', bgOpacity: 0.8, fontFamily:sans-serif },  // Example blue background
+            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(0,0,0)', color: 'white' , bgOpacity: '0.8', fontFamily:'sans-serif'},
+            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(0, 0, 255)', color: 'white', bgOpacity: '0.8', fontFamily:'sans-serif' },  // Example blue background
+            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(255, 242, 0)', color: 'black', bgOpacity: '0.8', fontFamily:'sans-serif' },  // Example blue background
 
         ];
     } else if (layout === 'bullets') {
         variations = [
-            { x: 0.2, y: 0.2, align: 'center', bgColor: 'rgba(0,0,0)', color: 'white', bgOpacity: 0.8, fontFamily:sans-serif },
-            { x: 0.5, y: 0.2, align: 'center', bgColor: 'rgba(255,255,255)', color: 'black' , bgOpacity: 0.8, fontFamily:sans-serif},
-            { x: 0.9, y: 0.2, align: 'center', bgColor: 'rgba(0,0,0)', color: 'yellow', bgOpacity: 0.8, fontFamily:sans-serif },
-            { x: 0.2, y: 0.5, align: 'center', bgColor: 'rgba(244, 224, 9)', color: 'black', bgOpacity: 0.8, fontFamily:sans-serif }, // Example red background
-            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(0, 255, 0)', color: 'black', bgOpacity: 0.8, fontFamily:sans-serif }, // Example green background
-            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(0, 255, 0)', color: 'rgb(248, 216, 8)' , bgOpacity: 0.8 , fontFamily:sans-serif}, // Example green background
-            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(0,0,0)', color: 'white' , bgOpacity: 0.8 , fontFamily:sans-serif},
-            { x: 0.9, y: 0.5, align: 'center', bgColor: 'rgba(0, 0, 255)', color: 'white' , bgOpacity: 0.8 , fontFamily:sans-serif}  // Example blue background
+            { x: 0.2, y: 0.2, align: 'center', bgColor: 'rgba(0,0,0)', color: 'white', bgOpacity: '0.8', fontFamily:'sans-serif' },
+            { x: 0.5, y: 0.2, align: 'center', bgColor: 'rgba(255,255,255)', color: 'black' , bgOpacity: '0.8', fontFamily:'sans-serif'},
+            { x: 0.9, y: 0.2, align: 'center', bgColor: 'rgba(0,0,0)', color: 'yellow', bgOpacity: '0.8', fontFamily:'sans-serif' },
+            { x: 0.2, y: 0.5, align: 'center', bgColor: 'rgba(244, 224, 9)', color: 'black', bgOpacity: '0.8', fontFamily:'sans-serif' }, // Example red background
+            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(0, 255, 0)', color: 'black', bgOpacity: '0.8', fontFamily:'sans-serif' }, // Example green background
+            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(0, 255, 0)', color: 'rgb(248, 216, 8)' , bgOpacity: '0.8' , fontFamily:'sans-serif'}, // Example green background
+            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(0,0,0)', color: 'white' , bgOpacity: '0.8' , fontFamily:'sans-serif'},
+            { x: 0.9, y: 0.5, align: 'center', bgColor: 'rgba(0, 0, 255)', color: 'white' , bgOpacity: '0.8' , fontFamily:'sans-serif'}  // Example blue background
         ];
     }
     variations.forEach(variation => {
@@ -279,22 +279,41 @@ function drawText(canvas, design) {
     const lineHeight = design.fontSize * 1.2; // Adjust line height as needed
 
     lines.forEach(line => {
-        const x = design.align === 'left' ? design.x * canvas.width :
-                  design.align === 'center' ? canvas.width / 2 :
-                  design.x * canvas.width;
+        let x; // Declare x outside the if/else block
+
+        if (design.align === 'left') {
+            x = design.x * canvas.width;
+        } else if (design.align === 'center') {
+            x = canvas.width / 2;  // Center the text
+        } else if (design.align === 'right') {
+            x = canvas.width - (design.x * canvas.width); // Align to the right edge
+        } else {
+            x = design.x * canvas.width; // Default to left if alignment is invalid
+        }
 
 
         if (design.bgColor) {
             ctx.fillStyle = design.bgColor;
             ctx.globalAlpha = design.bgOpacity;
             const metrics = ctx.measureText(line);
-            const rectX = design.align === 'left' ? x : design.align === 'center' ? x - metrics.width / 2 : x - metrics.width;
+            let rectX;
+
+            if (design.align === 'left') {
+                rectX = x;
+            } else if (design.align === 'center') {
+                rectX = x - metrics.width / 2;
+            } else if (design.align === 'right') {
+                rectX = x - metrics.width;
+            } else {
+                rectX = x;
+            }
             ctx.fillRect(rectX - 5, y - lineHeight + 5, metrics.width + 10, lineHeight);
             ctx.globalAlpha = 1; // Reset alpha for the text!
             ctx.fillStyle = design.fontColor;
 
         }
-
+        
+        ctx.textAlign = design.align; // Set text alignment here, after calculating x!
         ctx.fillText(line, x, y);
 
         if (design.shadow) {
@@ -309,8 +328,21 @@ function drawText(canvas, design) {
             ctx.strokeStyle = 'black';
             ctx.lineWidth = 2;
             const metrics = ctx.measureText(line);
-            const rectX = design.align === 'left' ? x : design.align === 'center' ? x - metrics.width / 2 : x - metrics.width;
+
+            let rectX;
+
+            if (design.align === 'left') {
+                rectX = x;
+            } else if (design.align === 'center') {
+                rectX = x - metrics.width / 2;
+            } else if (design.align === 'right') {
+                rectX = x - metrics.width;
+            } else {
+                rectX = x;
+            }
             ctx.strokeRect(rectX - 5, y - lineHeight + 5, metrics.width + 10, lineHeight);
+    
+            
         }
 
         y += lineHeight;
