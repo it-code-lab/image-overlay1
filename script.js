@@ -16,6 +16,7 @@ const shadow = document.getElementById('shadow');
 const border = document.getElementById('border');
 const downloadButton = document.getElementById('downloadButton');
 const imageContainer = document.getElementById('imageContainer'); // Get the container
+const fontFamily = document.getElementById('fontFamily'); // Get the select element
 
 let image;
 let designs = []; // Store generated designs
@@ -80,15 +81,32 @@ function generateDesigns() {
     const layout = layoutType.value;
     const text = (layout === 'headingBullets') ? heading.value : (layout === 'bullets') ? bullets.value : (layout === 'info')? infoText.value : heading.value;
 
-    const variations = [
-        { x: 0.1, y: 0.1, align: 'left', bgColor: 'rgba(0,0,0,0.5)', color: 'white' },
-        { x: 0.5, y: 0.1, align: 'center', bgColor: 'rgba(255,255,255,0.7)', color: 'black' },
-        { x: 0.9, y: 0.1, align: 'right', bgColor: 'rgba(0,0,0,0.7)', color: 'yellow' },
-        { x: 0.1, y: 0.5, align: 'left', bgColor: 'rgba(255, 0, 0, 0.5)', color: 'white' }, // Example red background
-        { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(0, 255, 0, 0.5)', color: 'black' }, // Example green background
-        { x: 0.9, y: 0.5, align: 'right', bgColor: 'rgba(0, 0, 255, 0.5)', color: 'white' }  // Example blue background
-    ];
 
+    let variations;
+    if (layout === 'center') {
+        variations = [
+            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(0, 255, 0, 0)', color: 'black' }, // Example green background
+            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(0, 255, 0, 0)', color: 'white' }, // Example green background
+            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(0, 255, 0, 0)', color: 'yellow' }, // Example green background
+            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(250, 247, 247, 0.92)', color: 'black' }, // Example green background
+
+            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(0,0,0,0.7)', color: 'white' },
+            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(0, 0, 255, 0.7)', color: 'white' },  // Example blue background
+            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(255, 242, 0, 0.92)', color: 'black' },  // Example blue background
+
+        ];
+    } else if (layout === 'bullets') {
+        variations = [
+            { x: 0.2, y: 0.2, align: 'center', bgColor: 'rgba(0,0,0,0.7)', color: 'white' },
+            { x: 0.5, y: 0.2, align: 'center', bgColor: 'rgba(255,255,255,0.7)', color: 'black' },
+            { x: 0.9, y: 0.2, align: 'center', bgColor: 'rgba(0,0,0,0.7)', color: 'yellow' },
+            { x: 0.2, y: 0.5, align: 'center', bgColor: 'rgba(244, 224, 9, 0.93)', color: 'black' }, // Example red background
+            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(0, 255, 0, 0)', color: 'black' }, // Example green background
+            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(0, 255, 0, 0)', color: 'rgb(248, 216, 8)' }, // Example green background
+            { x: 0.5, y: 0.5, align: 'center', bgColor: 'rgba(0,0,0,0.7)', color: 'white' },
+            { x: 0.9, y: 0.5, align: 'center', bgColor: 'rgba(0, 0, 255, 0.5)', color: 'white' }  // Example blue background
+        ];
+    }
     variations.forEach(variation => {
         const design = {
             ...variation,
@@ -96,9 +114,12 @@ function generateDesigns() {
             layout,
             fontSize: parseInt(fontSize.value),
             fontColor: fontColor.value,
+            bgColor: bgColor.value,
             fontStyle: fontStyle.value,
+            fontFamily: fontFamily.value, // Add fontFamily to the design object
             shadow: shadow.checked,
             border: border.checked
+
         };
         designs.push(design);
     });
@@ -145,6 +166,7 @@ function updateCustomizationOptions() {
     fontColor.value = selectedDesign.fontColor;
     bgColor.value = selectedDesign.bgColor || '#000000'; // Set default if not defined
     fontStyle.value = selectedDesign.fontStyle;
+    fontFamily.value = selectedDesign.fontFamily;
     textAlign.value = selectedDesign.align;
     shadow.checked = selectedDesign.shadow;
     border.checked = selectedDesign.border;
@@ -181,6 +203,13 @@ fontStyle.addEventListener('change', () => {
     if (selectedDesign) {
         selectedDesign.fontStyle = fontStyle.value;
         drawText(finalCanvas, selectedDesign);
+    }
+});
+
+fontFamily.addEventListener('change', () => {
+    if (selectedDesign) {
+        selectedDesign.fontFamily = fontFamily.value;  // Update the font family in selectedDesign
+        drawText(finalCanvas, selectedDesign); // Redraw the canvas
     }
 });
 
@@ -231,7 +260,7 @@ function drawImage(canvas, img) {
 
 function drawText(canvas, design) {
     const ctx = canvas.getContext('2d');
-    ctx.font = `${design.fontStyle} ${design.fontSize}px sans-serif`;
+    ctx.font = `${design.fontStyle} ${design.fontSize}px ${design.fontFamily}`; // Use design.fontFamily
     ctx.fillStyle = design.fontColor;
     ctx.textAlign = design.align;
 
@@ -286,7 +315,9 @@ bullets.addEventListener('input', generateDesigns);
 infoText.addEventListener('input', generateDesigns);
 fontSize.addEventListener('input', generateDesigns);
 fontColor.addEventListener('input', generateDesigns);
+bgColor.addEventListener('input', generateDesigns);
 fontStyle.addEventListener('change', generateDesigns);
+fontFamily.addEventListener('change', generateDesigns);
 textAlign.addEventListener('change', generateDesigns);
 shadow.addEventListener('change', generateDesigns);
 border.addEventListener('change', generateDesigns);

@@ -128,3 +128,51 @@ body {
     flex-direction: row;
     gap: 10px;
 }
+
+.sans-serif {
+    font-family: 'Arial', 'Helvetica', sans-serif; /* Common sans-serif */
+}
+
+.serif {
+    font-family: 'Georgia', 'Times New Roman', serif; /* Classic serif */
+}
+
+.arial {
+    font-family: 'Arial', sans-serif; /* Arial font */
+}
+.cursive {
+    font-family: 'Brush Script MT', cursive; /* Cursive font */
+}
+.monospace {
+    font-family: 'Courier New', monospace; /* Monospace font */
+}
+
+/* Modern/Stylish Font Families (add these and any others you like) */
+.font-poppins {
+    font-family: 'Poppins', sans-serif; /* Modern sans-serif */
+}
+
+.font-montserrat {
+    font-family: 'Montserrat', sans-serif; /* Clean, geometric sans-serif */
+}
+
+.font-open-sans {
+    font-family: 'Open Sans', sans-serif; /* Versatile sans-serif */
+}
+
+.font-roboto {
+    font-family: 'Roboto', sans-serif; /* Google's default sans-serif */
+}
+
+.font-lato {
+    font-family: 'Lato', sans-serif; /* Friendly sans-serif */
+}
+
+/* For Headings (You can use different fonts for headings) */
+.heading-font {
+    font-family: 'Oswald', sans-serif; /* Bold condensed sans-serif */
+}
+
+.font-playfair {
+    font-family: 'Playfair Display', serif; /* Elegant serif for headings */
+}

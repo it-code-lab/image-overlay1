@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Image Text Overlay Tool</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&family=Open+Sans&family=Oswald&family=Playfair+Display&family=Poppins&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pickr/1.8.2/themes/classic.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pickr/1.8.2/pickr.min.js"></script>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -42,8 +47,22 @@
             <input type="number" id="fontSize" value="30" min="1" />
             <label for="fontColor">Font Color:</label>
             <input type="color" id="fontColor" value="#ffffff" />
+            
             <label for="bgColor">Background Color:</label>
-            <input type="color" id="bgColor" value="#000000" /> <br />
+            <input type="color" id="bgColor" value="#000000" /> 
+
+            <label for="fontFamily">Font Family:</label>
+            <select id="fontFamily">
+                <option value="sans-serif">Sans-Serif</option>  
+                <option value="serif">Serif</option>
+                <option value="monospace">Monospace</option>
+                <option value="cursive">Cursive</option>
+                <!-- <option value="font-poppins">Poppins</option>
+                <option value="font-roboto">roboto </option>
+                <option value="font-lato">lato </option>
+                <option value="heading-font">heading </option>
+                <option value="font-open-sans">open-sans </option> -->
+            </select>
 
             <label for="fontStyle">Font Style:</label>
             <select id="fontStyle">
@@ -57,9 +76,9 @@
               <option value="center">Center</option>
               <option value="right">Right</option>
             </select>
-            <br />
+
             <label for="shadow">Shadow:</label>
-            <input type="checkbox" id="shadow" />
+            <input type="checkbox" id="shadow" checked />
             <label for="border">Border:</label>
             <input type="checkbox" id="border" />
           </div>
