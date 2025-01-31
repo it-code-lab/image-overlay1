@@ -318,7 +318,14 @@ yPosition.addEventListener('input', () => {
 function drawImage(canvas, img) {
     const ctx = canvas.getContext('2d');
     const aspectRatio = img.height / img.width;
-    canvas.height = canvas.width * aspectRatio; // Maintain aspect ratio
+    // Set desired dimensions for final canvas
+    if (canvas.id === 'finalCanvas') {
+        canvas.width = 1200; // Example width (adjust as needed)
+        canvas.height = canvas.width * aspectRatio; // Maintain aspect ratio
+    } else {
+        canvas.height = canvas.width * aspectRatio; // Maintain aspect ratio for preview
+    }
+
 
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 }
